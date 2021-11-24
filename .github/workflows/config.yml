@@ -21,6 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
+          pip3 install virtualenv
+          virtualenv -p /usr/bin/python3.6 venv
+          source venv/bin/activate
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip3 install -r requirements.txt
           docker-compose run app sh -c "python manage.py test && flake8"
