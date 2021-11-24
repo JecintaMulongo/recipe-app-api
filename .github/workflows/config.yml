@@ -33,11 +33,11 @@ jobs:
           source venv/bin/activate
       - name: Install dependance
         run: pip install -r requirements.txt
-
   job3:
     needs: [job1, job2]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - name: run test
         run: |
           docker-compose run app sh -c "python manage.py test && flake8"
