@@ -33,4 +33,4 @@ jobs:
       - name: Run Tests
         uses: actions/checkout@v3
         run: |
-          docker-compose run app sh -c "python manage.py test && flake8
+          docker-compose run app sh -c "python manage.py test && flake8"
