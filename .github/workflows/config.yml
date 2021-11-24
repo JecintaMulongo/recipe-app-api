@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: installing docker
-        uses: action/checkout@v3
+        uses: action/checkout@master
       - run: |
           echo " start instslling docker compose"
           pip install docker-compose
@@ -22,7 +22,7 @@ jobs:
     needs: job1
     runs-on: ubuntu-latest
     steps:
-      - name: actions/checkout@v3
+      - name: actions/checkout@master
         uses: Set up Pyhton %{{ matrx.python-version}}
         with:
           python-version: ${{matrix.python-version}}
@@ -31,6 +31,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Run Tests
-        uses: actions/checkout@v3
+        uses: actions/checkout@master
         run: |
           docker-compose run app sh -c "python manage.py test && flake8"
