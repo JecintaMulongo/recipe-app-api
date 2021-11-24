@@ -12,7 +12,7 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - uses: action/checkout@main
+      - uses: action/checkout
       - run: pip install docker-compose
   job2:
     runs-on: ubuntu-latest
@@ -21,9 +21,9 @@ jobs:
       matrix:
         python-version: [3.6]
     steps:
-      - uses: action/checkout@main
+      - uses: action/checkout
       - name: Set up Pyhton %{{ matrx.python-version}}
-        uses: action/setup-python@main
+        uses: action/setup-python
         with:
           python-version: ${{matrix.python-version}}
       - name: Install requrements
