@@ -14,8 +14,11 @@ jobs:
     steps:
       - run: |
           echo " start instslling docker compose"
+          sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
           pip install docker-compose
           echo "Finish installation of docker compose"
+          echo docker-compose --version
   job2:
     runs-on: ubuntu-latest
     steps:
