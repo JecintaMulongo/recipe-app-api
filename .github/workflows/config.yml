@@ -1,4 +1,4 @@
-name: recepi
+name: recepe
 
 on:
   push:
@@ -19,22 +19,22 @@ jobs:
   job2:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
       - name: Set up Python 3.6
-        uses: actions/setup-python@master
+        uses: actions/setup-python@v3
         with:
             python-version: 3.6
-      - name: Install dependencise
+      - name: create and start virtual enviroment
         run: |
-          pip3 install virtualenv
-          virtualenv -p /usr/bin/python3.6 venv
+          python3 -m venv venv
           source venv/bin/activate
-          python -m pip install --upgrade pip
-          pip3 install -r requirements.txt
+      - name: Install dependance
+        run: pip install -r requirements.txt
 
   job3:
     needs: [job1, job2]
     runs-on: ubuntu-latest
     steps:
-      - run: |
+      - name: run test
+        run: |
           docker-compose run app sh -c "python manage.py test && flake8"
