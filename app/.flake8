@@ -4,4 +4,4 @@ excude =
 	__pycache__,
 	manage.py,
 	setting.py,
-ignore = E203, E266, E265, E501, W503, F403, F401, E231, W292,E261
+ignore = E203, E266, E265, E501, W503, F403, F401, E231, W292,E261,E126
