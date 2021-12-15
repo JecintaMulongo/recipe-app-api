@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 
-
+def sample_user(email='test@gmail.com', password='testpass')
 class ModelTest(TestCase):
 
     def test_create_use_with_email_successful(self):
